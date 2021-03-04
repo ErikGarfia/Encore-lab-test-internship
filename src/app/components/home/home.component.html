@@ -1,0 +1,73 @@
+<section id="home">
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-8 col-sm-12 mt-4">
+                <input type="text" class="form-control ml-5 search-input" placeholder="Search..."
+                    [(ngModel)]="filterTerm">
+            </div>
+            <div class="col-md-4 col-sm-12 btn-col mt-4">
+                <button type="button" class="btn btn-info btn-lg mr-md-5 btn-fav" (click)='getFavs()'
+                    *ngIf="flag == 0">My favorites <i class="fas fa-star"></i></button>
+                <button type="button" class="btn btn-info btn-lg mr-md-5 btn-fav" (click)='backFavs()'
+                    *ngIf="flag == 1">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" *ngIf="flag == 0">
+        <div class="form-group">
+            <div class="search-results" infiniteScroll [infiniteScrollDistance]="20" [infiniteScrollThrottle]="100"
+                [scrollWindow]="false">
+                <div class="container" *ngFor="let x of photos;let i=index">
+                    <div class="container" *ngFor="let j of x | filter:filterTerm">
+                        <div class="container card-container my-2">
+                            <div class="row">
+                                <div class="col text-center my-2">
+                                    <h2>{{j.author}}</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <img class="img-fluid" width="190px" src="{{j.download_url}}">
+                                </div>
+                            </div>
+                            <div class="row my-2 text-center">
+                                <div class="col">
+                                    <h5>{{loremText[i]}}</h5>
+                                </div>
+                            </div>
+                            <div class="row my-2">
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-info btn-sm btn-add"
+                                        (click)="addFavorites(j.id)">Add to favorites</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" *ngIf="flag == 1">
+        <div class="form-group">
+            <div class="search-results" infiniteScroll [infiniteScrollDistance]="20" [infiniteScrollThrottle]="100"
+                [scrollWindow]="false">
+                <div class="container card-container my-2" *ngFor='let f of favorites | filter:filterTerm'>
+                    <div class="row">
+                        <div class="col text-center my-2">
+                            <h2>{{f.author}}</h2>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col text-center">
+                            <img class="img-fluid" width="190px" src="{{f.download_url}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

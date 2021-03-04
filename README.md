@@ -1,27 +1,34 @@
-# Encorelab
+# ERIK GARFIA ACEVEDO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+## Try Front Ionic / Angular (create an application with ionic or angular)
+* Given the following URLs:
+    * https://picsum.photos/id/0/info
+    * https://picsum.photos/id/0/500/500.jpg
+* Get information about a specific image by using
+    * /id/{id}/info endpoint
+    * /id/{id}/{width}/{height} endpoint
+* Id between 0 and 1083.
 
-## Development server
+## 1st Generate a Json of 4000 elements
+    Generate an Array / Json of 4000 elements with the following structure
+    1. [
+    2.   {
+    3.     id: image_id,
+    4.     photo: url_photo,
+    5.     author: image_author,
+    6.     text: random_lorem_ipsum_text
+    7.   },
+    8.   .....
+    9. ]
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 2nd Display the 4000 elements on the screen
+* Show the 4000 elements on the screen, the scroll must have an optimal performance.
+* It should show the image, the author and the random text generated
+* Load images on the page asynchronously (Images asynchronously meaning one after another and only when we scroll to a browser viewport will the next image load).
 
-## Code scaffolding
+## 3rd Add Filter
+* Add a filter that allows you to search by the image ID, author and by the text.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 4th Favourites 
+* You must allow the user to add / remove images as favourites and browse their favourites list.
+* Favourites images should appear even after reloading the page.
